@@ -31,33 +31,27 @@ void insertLast_hotel(ListHotel &LH, addressHotel P){
 
 void showAllHotel_hotel(ListHotel LH){
     addressHotel P = LH.first;
-    cout << endl;
-    cout << "========= D A T A  H O T E L ========"<< endl;
+    cout << "===== D A T A  H O T E L ====="<< endl;
     if (P == nullptr){
         cout << "Maaf data hotel kosong" << endl;
     } else {
         while (P != nullptr){
-            cout << "| ID Hotel: " << P->info.id << endl;
-            cout << "| Nama Hotel: " << P->info.namaHotel << endl;
-            cout << "| Lokasi: " << P->info.lokasi << endl;
-            cout << "| Jumlah Kamar: " << P->info.jumlahKamar << endl;
-            cout << "| Harga Per Malam: " << P->info.hargaPerMalam << endl;
-            cout << "---------------------------------\n";
+            cout << "ID Hotel: " << P->info.id << endl;
+            cout << "Nama Hotel: " << P->info.namaHotel << endl;
+            cout << "Lokasi: " << P->info.lokasi << endl;
+            cout << "Jumlah Kamar: " << P->info.jumlahKamar << endl;
+            cout << "Harga Per Malam: " << P->info.hargaPerMalam << endl;
             cout << endl;
             P = P->next;
         }
-         cout << "====================================\n";
-
     }
-};
+}
 
 void showHotelId_hotel(addressHotel P){
     if (P != nullptr){
-        cout << "=======================" << endl;
-        cout << "|      H O T E L      |" << endl;
-        cout << "=======================" << endl;
-        cout << "| ID Hotel  : " << P->info.id << endl;
-        cout << "| Nama Hotel: " << P->info.namaHotel << endl;
+        cout << "====== H O T E L ======" << endl;
+        cout << "ID Hotel: " << P->info.id << endl;
+        cout << "Nama Hotel: " << P->info.namaHotel << endl;
         cout << endl;
     } else {
         cout << "Data tidak ditemukan" << endl;
@@ -73,7 +67,7 @@ addressHotel searchHotel_hotel(ListHotel LH, int id){
         P = P->next;
     }
     return nullptr;
-};
+}
 
 void deleteHotelAndPemesan (ListHotel &LH, addressHotel x){
     if(x->next == nullptr){
@@ -93,26 +87,24 @@ void deleteHotelAndPemesan (ListHotel &LH, addressHotel x){
         prec->next = x->next;
         x->next = nullptr;
     }
-};
+}
 
 void menu(ListHotel &LH, ListPemesan &L){
     int pilihan = 1;
     while (pilihan != 10) {
         cout << " " << endl;
-        cout << "===========================================" << endl;
-        cout << "|                 M E N U                 |" << endl;
-        cout << "===========================================" << endl;
-        cout << "|1. Tambah Hotel                          |" << endl;
-        cout << "|2. Tampilkan Semua Hotel                 |" << endl;
-        cout << "|3. Hapus Hotel beserta Pemesan           |" << endl;
-        cout << "|4. Cari Hotel                            |" << endl;
-        cout << "|5. Tambah Pemesan pada Hotel             |" << endl;
-        cout << "|6. Tampilkan Semua Hotel beserta Pemesan |" << endl;
-        cout << "|7. Cari Pemesan pada Hotel               |" << endl;
-        cout << "|8. Hapus Pemesan pada Hotel              |" << endl;
-        cout << "|9. Hitung Jumlah Pemesan pada Hotel      |" << endl;
-        cout << "|10. Keluar                               |" << endl;
-        cout << "===========================================" << endl;
+        cout << "================ M E N U ================" << endl;
+        cout << "1. Tambah Hotel" << endl;
+        cout << "2. Tampilkan Semua Hotel" << endl;
+        cout << "3. Hapus Hotel beserta Pemesan" << endl;
+        cout << "4. Cari Hotel" << endl;
+        cout << "5. Tambah Pemesan pada Hotel" << endl;
+        cout << "6. Tampilkan Semua Hotel beserta Pemesan" << endl;
+        cout << "7. Cari Pemesan pada Hotel" << endl;
+        cout << "8. Hapus Pemesan pada Hotel" << endl;
+        cout << "9. Hitung Jumlah Pemesan pada Hotel" << endl;
+        cout << "10. Keluar" << endl;
+        cout << "=========================================" << endl;
         cout << "Pilih Menu [1/2/3/4/5/6/7/8/9/10]; ";
         cin >> pilihan;
         if (pilihan == 1) {
@@ -121,26 +113,26 @@ void menu(ListHotel &LH, ListPemesan &L){
             cout << "====================================\n";
             cout << "|       DATA HOTEL TERSIMPAN       |\n";
             cout << "====================================\n";
-            cout << "| ID Hotel         : ";
+            cout << "| ID Hotel        : " ;
             cin >> x.id;
 
-            cout << "| Nama Hotel       : ";
+            cout << "| Nama Hotel      : ";
             cin >> x.namaHotel;
 
-            cout << "| Lokasi           : ";
+            cout << "| Lokasi          : ";
             cin >> x.lokasi;
 
-            cout << "| Jumlah Kamar     : ";
+            cout << "| Jumlah Kamar    : ";
             cin >> x.jumlahKamar;
 
-            cout << "| Harga Per Malam  : ";
+            cout << "| Harga Per Malam : ";
             cin >> x.hargaPerMalam;
             cout << "====================================\n";
 
             addressHotel P = createElm_hotel(x);
             insertLast_hotel(LH, P);
 
-            cout << "|    Hotel berhasil ditambahkan!   |\n";
+            cout << "Hotel berhasil ditambahkan!\n";
             cout << "====================================\n";
 
         } else if (pilihan == 2){
@@ -256,7 +248,7 @@ void menu(ListHotel &LH, ListPemesan &L){
                 if (P == nullptr){
                     cout << "Pemesan tidak ditemukan di hotel ini.\n\n";
                 } else {
-                    cout << "======= DATA PEMESAN =======\n";
+                    cout << "=== DATA PEMESAN ===\n";
                     cout << "ID Pemesan   : " << P->info.id << endl;
                     cout << "Nama         : " << P->info.namaPemesan << endl;
                     cout << "No. KTP      : " << P->info.nomorKTP << endl;
@@ -264,7 +256,6 @@ void menu(ListHotel &LH, ListPemesan &L){
                     cout << "Email        : " << P->info.email << endl;
                     cout << "Umur         : " << P->info.umur << endl;
                     cout << "Alamat       : " << P->info.alamat << endl;
-                    cout << "============================\n";
                     cout << endl;
                 }
             }
@@ -289,7 +280,7 @@ void menu(ListHotel &LH, ListPemesan &L){
                 if (P == nullptr) {
                     cout << "Pemesan tidak ditemukan di hotel ini.\n\n";
                 } else {
-                    if (P == H->info.pemesan.first){
+                    if (P == H->info.pemesan.last){
                         deleteFirst_pemesan(H->info.pemesan, P);
                     } else if (P == H->info.pemesan.last){
                         deleteLast_pemesan(H->info.pemesan, P);
@@ -328,13 +319,13 @@ void menu(ListHotel &LH, ListPemesan &L){
             cout << "Terima kasih telah memesan hotel di aplikasi ini! \n";
         }
     }
-};
+}
 
 //DLL
 void createList_pemesan(ListPemesan &L){
     L.first = nullptr;
     L.last = nullptr;
-};
+}
 
 addressPemesan allocate_pemesan(infotypePemesan x){
     addressPemesan P = new elmPemesan;
@@ -344,7 +335,7 @@ addressPemesan allocate_pemesan(infotypePemesan x){
         P->prev = nullptr;
     }
     return P;
-};
+}
 
 void printSinglePemesan(addressPemesan pemesan){
     if (pemesan != nullptr){
@@ -357,7 +348,7 @@ void printSinglePemesan(addressPemesan pemesan){
         cout << "Alamat           : " << pemesan->info.email << endl;
         cout << endl;
     }
-};
+}
 
 void insertLast_pemesan(ListPemesan &L, addressPemesan P){
     if (L.first == nullptr){
@@ -368,7 +359,7 @@ void insertLast_pemesan(ListPemesan &L, addressPemesan P){
         L.last->next = P;
         L.last = P;
     }
-};
+}
 
 void deleteFirst_pemesan(ListPemesan &L, addressPemesan &P){
     if (L.first != nullptr){
@@ -382,7 +373,7 @@ void deleteFirst_pemesan(ListPemesan &L, addressPemesan &P){
         }
         P->next = nullptr;
     }
-};
+}
 
 void deleteLast_pemesan(ListPemesan &L, addressPemesan &P){
     if (L.first != nullptr){
@@ -399,7 +390,7 @@ void deleteLast_pemesan(ListPemesan &L, addressPemesan &P){
             q->next = nullptr;
         }
     }
-};
+}
 
 addressPemesan searchByID_pemesan (ListPemesan L, int pemesanID){
     addressPemesan P = L.first;
@@ -412,3 +403,109 @@ addressPemesan searchByID_pemesan (ListPemesan L, int pemesanID){
     }
     return nullptr;
 };
+
+bool isPemesanExistInAllHotel(ListHotel LH, int pemesanID){
+    addressHotel P = LH.first;
+    while (P != nullptr){
+        if (searchByID_pemesan(P->info.pemesan, pemesanID) != nullptr){
+            return true;
+        }
+        P = P->next;
+    }
+    return false;
+}
+
+void deletePemesanFromHotel(addressHotel hotel, int pemesanID){
+    if (hotel != nullptr){
+        ListPemesan &L = hotel->info.pemesan;
+
+        addressPemesan P = searchByID_pemesan(L, pemesanID);
+
+        if (P != nullptr){
+            if (P == L.first){
+                deleteFirst_pemesan(L, P);
+            }else if (P == L.last){
+                deleteLast_pemesan(L, P);
+            } else {
+                P->prev->next = P->next;
+                P->next->prev = P->prev;
+                P->next = nullptr;
+                P->prev = nullptr;
+            }
+            delete P;
+            cout << "Pemesan berhasil dihapus." << endl;
+        } else {
+            cout << "Pemesan dengan ID " << pemesanID << "tidak ditemukan di hotel ini." << endl;
+        }
+    } else {
+        cout  << "Hotel tidak valid" << endl;
+    }
+}
+
+
+int countPemesanbyHotel(addressHotel hotel){
+    if (hotel != nullptr){
+        int count = 0;
+        addressPemesan P = hotel->info.pemesan.first;
+        while (P != nullptr){
+            count++;
+            P = P->next;
+        }
+        return count;
+    }
+    return 0;
+};
+
+void showSinglePemesanbyHotel (addressHotel hotel, int pemesanID){
+    if (hotel != nullptr) {
+        ListPemesan L = hotel->info.pemesan;
+
+        cout << "Hotel ID    : " << hotel->info.id << endl;
+        cout << "Nama Hotel  : " << hotel->info.namaHotel << endl;
+
+        if (L.first != nullptr) {
+            addressPemesan P = searchByID_pemesan(L, pemesanID);
+
+            if (P != nullptr) {
+                cout << "===== D A T A  P E M E S A N =====" << endl;
+                printSinglePemesan(P);
+            } else {
+                cout << "Pemesan dengan ID " << pemesanID << " tidak ditemukan di hotel ini." << endl;
+            }
+        } else {
+            cout << "Hotel ini belum memiliki pemesan sama sekali." << endl;
+        }
+    } else {
+        cout << "Hotel tidak ditemukan (Alamat Kosong)." << endl;
+    }
+}
+
+
+void showAllHotelAndPemesan (ListHotel LH){
+    addressHotel h = LH.first;
+    if (h == nullptr) {
+        cout << "List Hotel Kosong" << endl;
+        return;
+    }
+
+    cout << "Daftar Semua Hotel dan Pemesan: " << endl;
+    while (h != nullptr) {
+        cout << "-----------------------------" << endl;
+        cout << "ID Hotel   : " << h->info.id << endl;
+        cout << "Nama Hotel : " << h->info.namaHotel << endl;
+
+        addressPemesan p = h->info.pemesan.first;
+        if (p == nullptr) {
+            cout << "Hotel ini tidak memiliki pemesan." << endl;
+        } else {
+            cout << "Daftar Pemesan:" << endl;
+            while (p != nullptr) {
+                cout << "  - [" << p->info.id << "] " << p->info.namaPemesan << endl;
+                p = p->next;
+            }
+        }
+        h = h->next;
+    }
+}
+
+
