@@ -68,7 +68,6 @@ void insertLast_hotel(ListHotel &LH, addressHotel P);
 void showAllHotel_hotel(ListHotel LH);
 void showHotelId_hotel(addressHotel P);
 addressHotel searchHotel_hotel(ListHotel LH, int id);
-void deleteHotelAndPemesan (ListHotel &LH, addressHotel x);
 
 //Fungsi dan prosedur untuk Pemesan
 void createList_pemesan(ListPemesan &L);
@@ -78,9 +77,11 @@ void insertLast_pemesan(ListPemesan &L, addressPemesan P);
 void deleteFirst_pemesan(ListPemesan &L, addressPemesan &P);
 void deleteLast_pemesan(ListPemesan &L, addressPemesan &P);
 addressPemesan searchByID_pemesan (ListPemesan L, int pemesanID);
+void PrintList_pemesan (ListPemesan L);
 
 //Fungsi dan prosedur untuk relasi
 bool isPemesanExistInAllHotel(ListHotel LH, int pemesanID);
+void deleteHotelAndPemesan (ListHotel &LH, addressHotel x);
 void deletePemesanFromHotel(addressHotel hotel, int hotelID);
 int countPemesanbyHotel(addressHotel hotel);
 void showSinglePemesanbyHotel (addressHotel hotel, int hotelID);
